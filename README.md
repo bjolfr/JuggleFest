@@ -1,8 +1,9 @@
 # JuggleFest
 Puzzle from coding interview
+
 2 - Juggle Fest
 
-Juggle Fest needs your help to planning it. There will be thousands of
+Juggle Fest needs your help for planning it. There will be thousands of
 participants split into teams. Each team will attempt to complete a
 juggling circuit consisting of several tricks. Each circuit emphasizes
 different aspects of juggling, requiring hand to eye coordination (H),
