@@ -62,7 +62,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CheckMailAddress.txt" />
     <Content Include="jugglefest.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
