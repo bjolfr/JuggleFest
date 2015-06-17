@@ -141,18 +141,10 @@ namespace JuggleFest
                     Juggler.MisfitCollection.Add(candidates.Dequeue());
             }
             //and sort them by score
-            int tot = 0;
-            System.Diagnostics.Debug.WriteLine("\n");
             foreach (var c in Circuit.CircuitCollection)
-            {
                 c.Value.Jugglers = c.Value.Jugglers
                     .OrderByDescending(kv => kv.Value)
                     .ToDictionary(t => t.Key, t => t.Value);
-                tot += c.Value.Jugglers.Count;
-                System.Diagnostics.Debug.WriteIf(c.Value.Jugglers.Count<6,String.Format("{0}:{1} ", c.Key, c.Value.Jugglers.Count));
-            }
-            System.Diagnostics.Debug.WriteLine("\n");
-            System.Diagnostics.Debug.WriteLine(tot);
         }
 
         static void FormatAndOutput(System.IO.StreamWriter output)
