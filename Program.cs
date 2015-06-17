@@ -8,10 +8,10 @@ namespace JuggleFest
 {
     abstract class HEP
     {
-        public string Name;
-        public uint H; //hand to eye coordination
-        public uint E; //endurance
-        public uint P; //pizzazz
+        public string Name = String.Empty;
+        public uint H = 0; //hand to eye coordination
+        public uint E = 0; //endurance
+        public uint P = 0; //pizzazz
 
         protected static void ParseParameter(object obj, string[] param)
         {
@@ -25,11 +25,8 @@ namespace JuggleFest
                     list.MoveNext();
                     obj.GetType().GetField("Name").SetValue(obj, list.Current);
                     continue;
-                    //obj.GetType().BaseType.GetField("name", BindingFlags.NonPublic | BindingFlags.Instance)
-                    //    .SetValue(obj, list.Current);
                 }
                 string[] par = str.Split(new[] { ":" }, StringSplitOptions.RemoveEmptyEntries);
-                //FieldInfo fi = obj.GetType().BaseType.GetField(par[0], BindingFlags.NonPublic | BindingFlags.Instance);
                 FieldInfo fi = obj.GetType().BaseType.GetField(par[0]);
                 if (fi != null) fi.SetValue(obj, UInt32.Parse(par[1]));
             }
@@ -39,6 +36,7 @@ namespace JuggleFest
     class Circuit : HEP
     {
         public IDictionary<Juggler, uint> Jugglers = new Dictionary<Juggler, uint>();
+
         public static IDictionary<string,Circuit> CircuitCollection = new Dictionary<string,Circuit>();
         public static Circuit Parse(string[] features)
         {
@@ -85,7 +83,6 @@ namespace JuggleFest
         {
             System.IO.StreamReader input = new System.IO.StreamReader(@"jugglefest.txt");
             System.IO.StreamWriter output = new System.IO.StreamWriter(@"jugglefestout.txt");
-            System.IO.StreamWriter dbg = new System.IO.StreamWriter(@"jugglefestdbg.txt");
             
             ParseInput(input);
             DistributeParticipants();
